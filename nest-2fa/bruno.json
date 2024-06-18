@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "nest-2fa",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}
