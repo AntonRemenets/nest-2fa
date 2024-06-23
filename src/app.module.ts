@@ -4,6 +4,7 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo'
 import * as process from 'process'
 import { join } from 'path'
 import { AppResolver } from './app.resolver'
+import { LoggerModule } from 'nestjs-pino'
 
 @Module({
   imports: [
@@ -13,6 +14,16 @@ import { AppResolver } from './app.resolver'
       sortSchema: true,
       playground: false,
       path: 'api',
+    }),
+    LoggerModule.forRoot({
+      pinoHttp: {
+        transport: {
+          target: 'pino-pretty',
+          options: {
+            singleLine: true,
+          },
+        },
+      },
     }),
   ],
   controllers: [],
